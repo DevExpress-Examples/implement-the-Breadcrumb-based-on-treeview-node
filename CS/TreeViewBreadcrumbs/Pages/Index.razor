@@ -1,68 +1,62 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
 
-Welcome to your new app.
-
-@{
-    if (Breadcrumbs.Count != 0)
-    {
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                @for (int i = Breadcrumbs.Count - 1; i >= 0; i--)
-                {
-                    var currentNodeInfo = Breadcrumbs[i]; 
-                <li class="breadcrumb-item active ">
-                    @if (i != 0)
+<div class="d-flex flex-column">
+    <div>
+        @{ if (Breadcrumbs.Count != 0) {
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    @for (int i = Breadcrumbs.Count - 1; i >= 0; i--)
                     {
+                        var currentNodeInfo = Breadcrumbs[i];
+                        <li class="breadcrumb-item active ">
+                            @if (i != 0)
+                            {
                         <a @onclick="@(() => SelectNode(currentNodeInfo.Text))" href="#">
                             @currentNodeInfo.Text
-                        </a>
+                        </a> }
+                        else
+                        {
+                        @currentNodeInfo.Text}
+                        </li>
                     }
-                    else
-                    {
-                        @currentNodeInfo.Text
-                    }
-                </li>
-                }  
-            </ol>
-        </nav>
-    }
-}
-
-
-<DxTreeView @ref="@TreeView" AllowSelectNodes="true"
-            SelectionChanged="@SelectionChanged">
-    <Nodes>
-        <DxTreeViewNode Text="Metals">
+                </ol>
+            </nav> 
+            } 
+        }
+    </div>
+    <div>
+        <DxTreeView @ref="@TreeView" AllowSelectNodes="true"
+                    SelectionChanged="@SelectionChanged">
             <Nodes>
-                <DxTreeViewNode Text="Alkali metals" />
-                <DxTreeViewNode Text="Alkaline earth metals" />
-                <DxTreeViewNode Text="Inner transition elements">
+                <DxTreeViewNode Text="Metals">
                     <Nodes>
-                        <DxTreeViewNode Text="Lanthanides" />
-                        <DxTreeViewNode Text="Actinides" />
+                        <DxTreeViewNode Text="Alkali metals" />
+                        <DxTreeViewNode Text="Alkaline earth metals" />
+                        <DxTreeViewNode Text="Inner transition elements">
+                            <Nodes>
+                                <DxTreeViewNode Text="Lanthanides" />
+                                <DxTreeViewNode Text="Actinides" />
+                            </Nodes>
+                        </DxTreeViewNode>
+                        <DxTreeViewNode Text="Transition elements" />
+                        <DxTreeViewNode Text="Other metals" />
                     </Nodes>
                 </DxTreeViewNode>
-                <DxTreeViewNode Text="Transition elements" />
-                <DxTreeViewNode Text="Other metals" />
+                <DxTreeViewNode Text="Metalloids" />
+                <DxTreeViewNode Text="Nonmetals">
+                    <Nodes>
+                        <DxTreeViewNode Text="Halogens" />
+                        <DxTreeViewNode Text="Noble gases" />
+                        <DxTreeViewNode Text="Other nonmetals" />
+                    </Nodes>
+                </DxTreeViewNode>
             </Nodes>
-        </DxTreeViewNode>
-        <DxTreeViewNode Text="Metalloids" />
-        <DxTreeViewNode Text="Nonmetals">
-            <Nodes>
-                <DxTreeViewNode Text="Halogens" />
-                <DxTreeViewNode Text="Noble gases" />
-                <DxTreeViewNode Text="Other nonmetals" />
-            </Nodes>
-        </DxTreeViewNode>
-    </Nodes>
-</DxTreeView>
+        </DxTreeView>
+    </div>
+</div>
 
-@code  {
-
-    DxTreeView TreeView;
-
+@code  { DxTreeView TreeView;
 
     List<ITreeViewNodeInfo> Breadcrumbs;
 
@@ -72,7 +66,15 @@ Welcome to your new app.
         return base.OnInitializedAsync();
     }
 
-    void SelectNode(string text) {
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+            SelectNode("Metals");
+        return base.OnAfterRenderAsync(firstRender);
+    }
+
+    void SelectNode(string text)
+    {
         TreeView.SelectNode((n) => n.Text == text);
     }
 
@@ -87,5 +89,4 @@ Welcome to your new app.
         }
         while (currentNodeInfo != null);
         InvokeAsync(StateHasChanged);
-    }
-}
+    } }
