@@ -4,7 +4,7 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 
-### TreeView for Blazor - How to implement the Breadcrumb control based on a selected node 
+# TreeView for Blazor - How to implement the Breadcrumb control based on a selected node 
 
 The Breadcrumb control indicates the current page's location in a navigational hierarchy:
 
