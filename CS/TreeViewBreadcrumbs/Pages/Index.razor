@@ -56,37 +56,34 @@
     </div>
 </div>
 
-@code  { DxTreeView TreeView;
+@code  { 
+    DxTreeView TreeView;
 
     List<ITreeViewNodeInfo> Breadcrumbs;
 
-    protected override Task OnInitializedAsync()
-    {
+    protected override Task OnInitializedAsync() {
         Breadcrumbs = new List<ITreeViewNodeInfo>();
         return base.OnInitializedAsync();
     }
 
-    protected override Task OnAfterRenderAsync(bool firstRender)
-    {
+    protected override Task OnAfterRenderAsync(bool firstRender) {
         if (firstRender)
             SelectNode("Metals");
         return base.OnAfterRenderAsync(firstRender);
     }
 
-    void SelectNode(string text)
-    {
+    void SelectNode(string text) {
         TreeView.SelectNode((n) => n.Text == text);
     }
 
-    protected void SelectionChanged(TreeViewNodeEventArgs e)
-    {
+    protected void SelectionChanged(TreeViewNodeEventArgs e) {
         var currentNodeInfo = e.NodeInfo;
         Breadcrumbs.Clear();
-        do
-        {
+        do {
             Breadcrumbs.Add(currentNodeInfo);
             currentNodeInfo = currentNodeInfo.Parent;
         }
         while (currentNodeInfo != null);
         InvokeAsync(StateHasChanged);
-    } }
+    } 
+}
