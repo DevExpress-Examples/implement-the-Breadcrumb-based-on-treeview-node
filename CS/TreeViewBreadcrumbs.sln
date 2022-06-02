@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29512.175
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32002.185
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeViewBreadcrumbs", "TreeViewBreadcrumbs\TreeViewBreadcrumbs.csproj", "{90D6B8B9-F227-4415-96D3-876A1A430143}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeViewBreadcrumbs", "TreeViewBreadcrumbs\TreeViewBreadcrumbs.csproj", "{BD239CD2-7101-465D-ADFA-A6BF92A9365C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{90D6B8B9-F227-4415-96D3-876A1A430143}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{90D6B8B9-F227-4415-96D3-876A1A430143}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{90D6B8B9-F227-4415-96D3-876A1A430143}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{90D6B8B9-F227-4415-96D3-876A1A430143}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD239CD2-7101-465D-ADFA-A6BF92A9365C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD239CD2-7101-465D-ADFA-A6BF92A9365C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD239CD2-7101-465D-ADFA-A6BF92A9365C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD239CD2-7101-465D-ADFA-A6BF92A9365C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {992C5EA8-52D6-46FA-A9BA-2616E84F838C}
+		SolutionGuid = {90E9694E-06CE-41D3-AAED-A972080882E8}
 	EndGlobalSection
 EndGlobal

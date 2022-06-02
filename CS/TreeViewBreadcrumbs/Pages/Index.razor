@@ -1,15 +1,14 @@
 ﻿@page "/"
 
-
 <div class="d-flex flex-column">
     <div>
         @{ if (Breadcrumbs.Count != 0) {
             <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
+                <ol class="breadcrumb p-2 bg-white">
                     @for (int i = Breadcrumbs.Count - 1; i >= 0; i--)
                     {
                         var currentNodeInfo = Breadcrumbs[i];
-                        <li class="breadcrumb-item active ">
+                        <li class="breadcrumb-item active">
                             @if (i != 0)
                             {
                         <a @onclick="@(() => SelectNode(currentNodeInfo.Text))" href="#">
@@ -79,11 +78,10 @@
     protected void SelectionChanged(TreeViewNodeEventArgs e) {
         var currentNodeInfo = e.NodeInfo;
         Breadcrumbs.Clear();
-        do {
+        while (currentNodeInfo != null) {
             Breadcrumbs.Add(currentNodeInfo);
             currentNodeInfo = currentNodeInfo.Parent;
         }
-        while (currentNodeInfo != null);
         InvokeAsync(StateHasChanged);
     } 
 }
